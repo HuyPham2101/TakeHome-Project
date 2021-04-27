@@ -6,6 +6,23 @@ import { green, red, blue } from '@material-ui/core/colors';
 import StopIcon from '@material-ui/icons/Stop';
 import { Modal } from '../../../components/Modal';
 import { Addtracking } from './Addtracking';
+import styled from 'styled-components';
+
+const TimerDiv = styled.div`
+    display:flex;
+    justify-content:center;
+    height:300px;
+`;
+
+const ActivityBox = styled.div`
+        
+  
+`;
+const Head2 = styled.h2 `
+text-align: center;
+font-size : 400%;
+
+`
 export const Timer : React.FC<{ aftersubmit: () => void }> =  ({ aftersubmit }) =>{
   const [endTime, setEndTime] = useState('');
   const [startTime, setStartTime] = useState('');
@@ -73,7 +90,7 @@ export const Timer : React.FC<{ aftersubmit: () => void }> =  ({ aftersubmit }) 
     setCounter(0);
   };
   return (
-    <div>
+    <TimerDiv>
          {addTrack && (
         <Modal
           title="Save Tracking"
@@ -95,22 +112,24 @@ export const Timer : React.FC<{ aftersubmit: () => void }> =  ({ aftersubmit }) 
           />
         </Modal>
       )}
-
-      <h2>
-        {hour}:{minute}:{second}
-      </h2>
-      {!isActive ? (
-        <IconButton data-testid="StartTime" size="medium" color="primary" onClick={startCount}>
-          <PlayCircleFilledWhiteIcon style={{ color: green[500], fontSize: '70' }} />
+        <ActivityBox>
+        
+        {!isActive ? (
+            <IconButton data-testid="StartTime" size="medium" color="primary" onClick={startCount}>
+            <PlayCircleFilledWhiteIcon style={{ color: green[500], fontSize: '120' }} />
+            </IconButton>
+        ) : (
+            <IconButton data-testid="StopTime" size="medium" color="primary" onClick={StopandAdd}>
+            <StopIcon style={{ color: red[500], fontSize: '120' }} />
+            </IconButton>
+        )}
+        <IconButton onClick={resetCount}>
+            <RotateLeftIcon style={{ color: blue[700], fontSize: '120' }} />
         </IconButton>
-      ) : (
-        <IconButton data-testid="StopTime" size="medium" color="primary" onClick={StopandAdd}>
-          <StopIcon style={{ color: red[500], fontSize: '70' }} />
-        </IconButton>
-      )}
-      <IconButton onClick={resetCount}>
-        <RotateLeftIcon style={{ color: blue[700], fontSize: '70' }} />
-      </IconButton>
-    </div>
+        <Head2>
+            {hour}:{minute}:{second}
+        </Head2>
+        </ActivityBox>
+    </TimerDiv>
   );
 };
