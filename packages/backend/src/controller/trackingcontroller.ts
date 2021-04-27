@@ -28,6 +28,5 @@ export const createTracking = async (req :Request ,res : Response) => {
     }catch(e){
         res.status(404).send({status : 'not Found'});
     }
-    
 }
 
