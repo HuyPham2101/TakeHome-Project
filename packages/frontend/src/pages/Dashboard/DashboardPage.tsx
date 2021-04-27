@@ -17,6 +17,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { green } from '@material-ui/core/colors';
 import { Modal } from '../../components/Modal';
 import { AddtrackingManual } from './components/Addtrackmanual';
+import { SearchBox } from './components/SearchBox';
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
@@ -81,6 +82,7 @@ export const DashboardPage = () => {
     const [trackings, setTrackings] = useState<Tracking[]>([]);
     const [addtrack, setAddtrack] = useState(false);
     const [rowsPerPage, setRowsPerPage] = useState(7);
+    const [searchState, setSearchState] = useState('');
     const [sortConfig, setsortConfig] = useState({
         key: '',
         direction: '',
@@ -148,6 +150,9 @@ const fetchTracks = async () => {
       console.log(trackings)
     }
 };
+const  filteredDescription = sortedTracks.filter(tracking => {
+    return tracking.description.toLowerCase().includes(searchState.toLowerCase())
+})
 const classes = useStyles();
 return ( 
     <div>    
@@ -177,6 +182,7 @@ return (
           />
         </Modal>
       )}
+    <SearchBox placeholder = "Enter Description" handleChange = {(e:any) => setSearchState(e.target.value)}/>
 
 
     <TableContainer component={Paper}>
@@ -209,7 +215,7 @@ return (
           </StyledTableRow>
         </TableHead>
         <TableBody>
-          {sortedTracks
+          {filteredDescription
           .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((tracking) => (
             <StyledTableRow key={tracking.id}>
