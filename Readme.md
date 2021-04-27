@@ -1,4 +1,6 @@
 <!-- Heading -->
+Project TimeTracking
+![image](https://user-images.githubusercontent.com/60237489/116254951-14159080-a772-11eb-8986-6a626411f108.png)
 
 ## SET UP BACKEND
 
