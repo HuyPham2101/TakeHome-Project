@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, ManyToOne,UpdateDateColumn,PrimaryGeneratedColumn} from 'typeorm'
+import {Column, CreateDateColumn, Entity,UpdateDateColumn,PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity()
 export class Tracking{
@@ -17,5 +17,6 @@ export class Tracking{
     createdAt:string;
 
     @UpdateDateColumn ()
-    updatedAt:string
+    updatedAt:string;
+
 }

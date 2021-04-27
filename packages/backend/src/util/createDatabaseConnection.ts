@@ -20,4 +20,4 @@ export const createDatabaseConnection = async (configOverride: Partial<Connectio
   }
 
   throw new Error('Could not establish a database connection!');
-}v
+}
