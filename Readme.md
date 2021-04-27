@@ -43,4 +43,3 @@ Install npm packages inside Docker Container in frontend
 * It took me around 6 hours to get this done. 
 * The Assignment is interesting for me because it helps me understand my weakness and strength. I would have done more feature and written Tests if i had more time on the Project. For example Adding User to the Application . 
 * With my application the Design could have been better. And for now the StartTime and EndTime variable are String. Which is troublesome when duration of the Tracking time is needed. I would have changed it to Date if i had more time with the Project. 
-* The searching functi
